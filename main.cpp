@@ -2,6 +2,8 @@
 #include <cmath>
 #include <cstdio>
 
+#define PI = 3.14159265
+
 void quick_operation()
 {
     char op;
@@ -117,24 +119,32 @@ void square_root()
 }
 
 
-void sinus()
+void sine()
 {
     double x;
-    std::cout << "Enter number: " << std::endl;
+    std::cout << "PI = 3.14159265. Enter radian: " << std::endl;
     std::cin >> x;
     std::cout << "Result is " << sin(x) << std::endl;
 
 }
+void cosine()
+{
+    double x;
+    std::cout << "PI = 3.14159265. Enter radian: " << std::endl;
+    std::cin >> x;
+    std::cout << "Result is " << cos(x) << std::endl;
 
+}
 
 void logarithm()
 {
-    double n;
+    double n, x;
     std::cout << "Enter number: " << std::endl;
     std::cin >> n;
-    double result = log10(n);
+    double result = std::log10(n);
     std::cout << "Result is " << result << std::endl;
 }
+
 
 int main()
 {
@@ -145,7 +155,7 @@ int main()
     while(true)
     {
         std::cout << "Enter 1 for addition, 2 for subtraction, 3 for multiplication, 4 for division, 5 for simple interaction with 2 numbers, "
-                  << "6 for square root, 7 for 10-base log, " ;
+                  << "6 for square root, 7 for 10-base log, 8 for sine, 9 for cosine." ;
         std::cin >> x;
         switch(x)
         {
@@ -184,6 +194,16 @@ int main()
             logarithm();
             break;
         }
+        case 8:
+        {
+            sine();
+            break;
+        }
+        case 9:
+        {
+            cosine();
+            break;
+        }
         default:
         {
             std::cout << "Wrong input!" << std::endl;
@@ -193,4 +213,3 @@ int main()
     }
     return 0;
 }
-
