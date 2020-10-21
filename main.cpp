@@ -4,6 +4,86 @@
 
 #define PI = 3.14159265
 
+
+void quick_operation();
+void addition();
+void subtraction();
+void multiplication();
+void division();
+void square_root();
+void sine();
+void cosine();
+void logarithm();
+
+
+int main()
+{
+
+
+    int x;
+    std::cout << "Welcome to the advanced calculator by Ziya Bahceci!" << std::endl;
+    while(true)
+    {
+        std::cout << "Enter 1 for addition, 2 for subtraction, 3 for multiplication, 4 for division, 5 for simple interaction with 2 numbers, "
+                  << "6 for square root, 7 for 10-base log, 8 for sine, 9 for cosine." ;
+        std::cin >> x;
+        switch(x)
+        {
+        case 1:
+        {
+            addition();
+            break;
+        }
+        case 2:
+        {
+            subtraction();
+            break;
+        }
+        case 3:
+        {
+            multiplication();
+            break;
+        }
+        case 4:
+        {
+            division();
+            break;
+        }
+        case 5:
+        {
+            quick_operation();
+            break;
+        }
+        case 6:
+        {
+            square_root();
+            break;
+        }
+        case 7:
+        {
+            logarithm();
+            break;
+        }
+        case 8:
+        {
+            sine();
+            break;
+        }
+        case 9:
+        {
+            cosine();
+            break;
+        }
+        default:
+        {
+            std::cout << "Wrong input!" << std::endl;
+            break;
+        }
+        }
+    }
+    return 0;
+}
+
 void quick_operation()
 {
     char op;
@@ -114,7 +194,7 @@ void square_root()
 
     double sqrt_n = std::sqrt(n);
 
-    std::cout << "sqrt (" << n << ") = " << sqrt_n << std::endl;
+    std::cout << "The result is: " << sqrt_n << std::endl;
 
 }
 
@@ -124,7 +204,7 @@ void sine()
     double x;
     std::cout << "PI = 3.14159265. Enter radian: " << std::endl;
     std::cin >> x;
-    std::cout << "Result is " << sin(x) << std::endl;
+    std::cout << "The result is " << sin(x) << std::endl;
 
 }
 void cosine()
@@ -132,7 +212,7 @@ void cosine()
     double x;
     std::cout << "PI = 3.14159265. Enter radian: " << std::endl;
     std::cin >> x;
-    std::cout << "Result is " << cos(x) << std::endl;
+    std::cout << "The result is " << cos(x) << std::endl;
 
 }
 
@@ -143,73 +223,4 @@ void logarithm()
     std::cin >> n;
     double result = std::log10(n);
     std::cout << "Result is " << result << std::endl;
-}
-
-
-int main()
-{
-
-
-    int x;
-    std::cout << "Welcome to the advanced calculator by Ziya Bahceci!" << std::endl;
-    while(true)
-    {
-        std::cout << "Enter 1 for addition, 2 for subtraction, 3 for multiplication, 4 for division, 5 for simple interaction with 2 numbers, "
-                  << "6 for square root, 7 for 10-base log, 8 for sine, 9 for cosine." ;
-        std::cin >> x;
-        switch(x)
-        {
-        case 1:
-        {
-            addition();
-            break;
-        }
-        case 2:
-        {
-            subtraction();
-            break;
-        }
-        case 3:
-        {
-            multiplication();
-            break;
-        }
-        case 4:
-        {
-            division();
-            break;
-        }
-        case 5:
-        {
-            quick_operation();
-            break;
-        }
-        case 6:
-        {
-            square_root();
-            break;
-        }
-        case 7:
-        {
-            logarithm();
-            break;
-        }
-        case 8:
-        {
-            sine();
-            break;
-        }
-        case 9:
-        {
-            cosine();
-            break;
-        }
-        default:
-        {
-            std::cout << "Wrong input!" << std::endl;
-            break;
-        }
-        }
-    }
-    return 0;
 }
