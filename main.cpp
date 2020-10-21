@@ -5,15 +5,15 @@
 #define PI = 3.14159265
 
 
-void quick_operation();
 void addition();
 void subtraction();
 void multiplication();
 void division();
-void square_root();
-void sine();
-void cosine();
-void logarithm();
+void quick_operation();
+double square_root(double n);
+double logarithm(double n);
+double sine(double n);
+double cosine(double n);
 
 
 int main()
@@ -56,22 +56,43 @@ int main()
         }
         case 6:
         {
-            square_root();
+            int n;
+            do
+            {
+                std::cout << "Enter natural number: ";
+                std::cin >> n;
+            }
+            while(n <= 0);
+            double result = square_root(n);
+            std::cout << "The result is: " << result << std::endl;
             break;
         }
         case 7:
         {
-            logarithm();
+            double n;
+            std::cout << "Enter number: " << std::endl;
+            std::cin >> n;
+            double result = logarithm(n);
+            std::cout << "Result is " << result << std::endl;
+
             break;
         }
         case 8:
         {
-            sine();
+            double n;
+            std::cout << "PI = 3.14159265. Enter radian: " << std::endl;
+            std::cin >> n;
+            double result = sine(n);
+            std::cout << "The result is " << result << std::endl;
             break;
         }
         case 9:
         {
-            cosine();
+            double n;
+            std::cout << "PI = 3.14159265. Enter radian: " << std::endl;
+            std::cin >> n;
+            double result = cosine(n);
+            std::cout << "The result is " << result << std::endl;
             break;
         }
         default:
@@ -84,42 +105,8 @@ int main()
     return 0;
 }
 
-void quick_operation()
-{
-    char op;
-    float num1, num2;
-
-    std::cout << "Enter an operator (+, -, *, /) " << std::endl;
-    std::cin >> op;
-
-    std::cout << "Enter 2 numbers: " << std::endl;
-    std::cin >> num1 >> num2;
-
-    switch(op)
-    {
-    case '+':
-        std::cout << "The result is " << num1 + num2 << std::endl;
-        break;
-
-    case '-':
-        std::cout << "The result is " << num1 - num2 << std::endl;
-        break;
-
-    case '*':
-        std::cout << "The result is " << num1 * num2 << std::endl;
-        break;
-
-    case '/':
-        std::cout << "The result is " << num1 / num2 << std::endl;
-        break;
-
-    default:
-        std::cout << "Error! The operator is not correct";
-        break;
-    }
 
 
-}
 
 void addition()
 {
@@ -139,8 +126,6 @@ void addition()
         ++i;
     }
     std::cout << "The result is " << sum << std::endl;
-
-
 }
 
 void subtraction()
@@ -181,46 +166,64 @@ void division()
     std::cout << "The result is " << div_result << std::endl;
 }
 
-void square_root()
+void quick_operation()
 {
-    int n;
-    do
+    char op;
+    float num1, num2;
+
+    std::cout << "Enter an operator (+, -, *, /) " << std::endl;
+    std::cin >> op;
+
+    std::cout << "Enter 2 numbers: " << std::endl;
+    std::cin >> num1 >> num2;
+
+    switch(op)
     {
+    case '+':
+        std::cout << "The result is " << num1 + num2 << std::endl;
+        break;
 
-        std::cout << "Enter natural number: ";
-        std::cin >> n;
+    case '-':
+        std::cout << "The result is " << num1 - num2 << std::endl;
+        break;
+
+    case '*':
+        std::cout << "The result is " << num1 * num2 << std::endl;
+        break;
+
+    case '/':
+        std::cout << "The result is " << num1 / num2 << std::endl;
+        break;
+
+    default:
+        std::cout << "Error! The operator is not correct";
+        break;
     }
-    while(n <= 0);
-
-    double sqrt_n = std::sqrt(n);
-
-    std::cout << "The result is: " << sqrt_n << std::endl;
-
 }
 
 
-void sine()
+double square_root(double n)
 {
-    double x;
-    std::cout << "PI = 3.14159265. Enter radian: " << std::endl;
-    std::cin >> x;
-    std::cout << "The result is " << sin(x) << std::endl;
-
-}
-void cosine()
-{
-    double x;
-    std::cout << "PI = 3.14159265. Enter radian: " << std::endl;
-    std::cin >> x;
-    std::cout << "The result is " << cos(x) << std::endl;
-
+    double result = sqrt(n);
+    return result;
 }
 
-void logarithm()
+double logarithm(double n)
 {
-    double n, x;
-    std::cout << "Enter number: " << std::endl;
-    std::cin >> n;
-    double result = std::log10(n);
-    std::cout << "Result is " << result << std::endl;
+    double result = log10(n);
+    return result;
+}
+
+
+double sine(double n)
+{
+    double result = sin(n);
+    return result;
+}
+
+
+double cosine(double n)
+{
+    double result = cos(n);
+    return result;
 }
