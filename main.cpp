@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cmath>
-#include <cstdio>
+
 
 #define PI = 3.14159265
 
@@ -9,7 +9,7 @@ void addition();
 void subtraction();
 void multiplication();
 void division();
-void quick_operation();
+double toPower(double x, double y);
 double square_root(double n);
 double logarithm(double n);
 double sine(double n);
@@ -18,13 +18,11 @@ double cosine(double n);
 
 int main()
 {
-
-
     int x;
     std::cout << "Welcome to the advanced calculator by Ziya Bahceci!" << std::endl;
     while(true)
     {
-        std::cout << "Enter 1 for addition, 2 for subtraction, 3 for multiplication, 4 for division, 5 for simple interaction with 2 numbers, "
+        std::cout << "Enter 1 for addition, 2 for subtraction, 3 for multiplication, 4 for division, 5 for x^y, "
                   << "6 for square root, 7 for 10-base log, 8 for sine, 9 for cosine." ;
         std::cin >> x;
         switch(x)
@@ -51,7 +49,11 @@ int main()
         }
         case 5:
         {
-            quick_operation();
+            double x, y;
+            std::cout << "Please enter x and y seperately: " << std::endl;
+            std::cin >> x >> y;
+            double result =toPower(x,y);
+            std::cout << "The result is " << result << std::endl;
             break;
         }
         case 6:
@@ -70,12 +72,20 @@ int main()
         case 7:
         {
             double n;
-            std::cout << "Enter number: " << std::endl;
+            std::cout << "Enter number (bigger than 0): " << std::endl;
             std::cin >> n;
-            double result = logarithm(n);
-            std::cout << "Result is " << result << std::endl;
+            if(n > 0)
+            {
+                double result = logarithm(n);
+                std::cout << "Result is " << result << std::endl;
+                break;
+            }
+            else
+            {
+                std::cout << "Wrong input!" << std::endl;
+                break;
 
-            break;
+            }
         }
         case 8:
         {
@@ -166,41 +176,12 @@ void division()
     std::cout << "The result is " << div_result << std::endl;
 }
 
-void quick_operation()
+double toPower(double x, double y)
 {
-    char op;
-    float num1, num2;
 
-    std::cout << "Enter an operator (+, -, *, /) " << std::endl;
-    std::cin >> op;
-
-    std::cout << "Enter 2 numbers: " << std::endl;
-    std::cin >> num1 >> num2;
-
-    switch(op)
-    {
-    case '+':
-        std::cout << "The result is " << num1 + num2 << std::endl;
-        break;
-
-    case '-':
-        std::cout << "The result is " << num1 - num2 << std::endl;
-        break;
-
-    case '*':
-        std::cout << "The result is " << num1 * num2 << std::endl;
-        break;
-
-    case '/':
-        std::cout << "The result is " << num1 / num2 << std::endl;
-        break;
-
-    default:
-        std::cout << "Error! The operator is not correct";
-        break;
-    }
+    double x_y = std::pow(x,y);
+    return x_y;
 }
-
 
 double square_root(double n)
 {
